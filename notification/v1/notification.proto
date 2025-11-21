@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package lift.notification.v1;
+
+// Centralised notification proto used by lift-identity-service and
+// lift-notification-service.
+//
+// Generated Go code is published under:
+//   github.com/graytech-lk/lift-protos/gen/go/notification/v1
+option go_package = "github.com/graytech-lk/lift-protos/gen/go/notification/v1;notificationv1";
+
+message SendOTPRequest {
+  string channel = 1;       // e.g. "email", "sms"
+  string recipient = 2;
+  string template = 3;      // template identifier
+  string purpose = 4;       // e.g. "login_otp"
+  string locale = 5;        // default "en"
+  string correlation_id = 6;
+  int32 ttl_seconds = 7;
+  map<string, string> data = 8; // {"code":"123456", ...}
+}
+
+message SendOTPResponse {}
+
+service NotificationService {
+  rpc SendOTP(SendOTPRequest) returns (SendOTPResponse);
+}
+
+
