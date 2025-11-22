@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package lift.user.v1;
+
+// Shared user proto for retrieving user records via gRPC.
+// Generated Go code is published under:
+//   github.com/graytech-lk/lift-protos/gen/go/user/v1
+option go_package = "github.com/graytech-lk/lift-protos/gen/go/user/v1;userv1";
+
+message GetUserByIdRequest {
+  string user_id = 1;
+  string user_type = 2;
+}
+
+message UserRecord {
+  string id = 1;
+  string user_type = 2;
+  string payload_json = 3; // JSON document of the requested user
+}
+
+message GetUserByIdResponse {
+  UserRecord user = 1;
+}
+
+service UserService {
+  rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse);
+}
+
+
