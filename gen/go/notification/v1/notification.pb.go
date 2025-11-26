@@ -177,7 +177,7 @@ const file_notification_v1_notification_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x11\n" +
 	"\x0fSendOTPResponse2m\n" +
 	"\x13NotificationService\x12V\n" +
-	"\aSendOTP\x12$.lift.notification.v1.SendOTPRequest\x1a%.lift.notification.v1.SendOTPResponseBIZGgithub.com/graytech-lk/lift-proto/gen/go/notification/v1;notificationv1b\x06proto3"
+	"\aSendOTP\x12$.lift.notification.v1.SendOTPRequest\x1a%.lift.notification.v1.SendOTPResponseBJZHgithub.com/graytech-lk/lift-protos/gen/go/notification/v1;notificationv1b\x06proto3"
 
 var (
 	file_notification_v1_notification_proto_rawDescOnce sync.Once
@@ -231,5 +231,3 @@ func file_notification_v1_notification_proto_init() {
 	file_notification_v1_notification_proto_goTypes = nil
 	file_notification_v1_notification_proto_depIdxs = nil
 }
-
-

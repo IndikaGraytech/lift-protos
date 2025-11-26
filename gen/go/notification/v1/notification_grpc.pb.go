@@ -119,5 +119,3 @@ var NotificationService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "notification/v1/notification.proto",
 }
-
-

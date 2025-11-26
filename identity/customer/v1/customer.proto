@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package lift.identity.customer.v1;
+
+option go_package = "github.com/graytech-lk/lift-protos/gen/go/identity/customer/v1;customerv1";
+
+message GetCustomerByPhoneRequest {
+  string phone_number = 1;
+}
+
+message UserCustomer {
+  string id = 1;
+  string phone_number = 2;
+  string status = 3;
+}
+
+message GetCustomerByPhoneResponse {
+  UserCustomer customer = 1;
+}
+
+service CustomerService {
+  rpc GetCustomerByPhone(GetCustomerByPhoneRequest) returns (GetCustomerByPhoneResponse);
+}
+
+
