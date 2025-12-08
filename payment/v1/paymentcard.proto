@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package paymentcard.v1;
+
+option go_package = "lift-microservices/lift-payment-service/internal/proto/paymentcard/v1;paymentcardv1";
+
+service PaymentCardService {
+  rpc CreateCardTransaction(CreateCardTransactionRequest) returns (CardTransactionResponse);
+  rpc CaptureCardAmount(CaptureCardAmountRequest) returns (CardTransactionResponse);
+  rpc ReverseCardAmount(ReverseCardAmountRequest) returns (CardTransactionResponse);
+}
+
+message CreateCardTransactionRequest {
+  string payment_token = 1;
+  double amount = 2;
+}
+
+message CaptureCardAmountRequest {
+  string transaction_id = 1;
+  double amount = 2;
+}
+
+message ReverseCardAmountRequest {
+  string transaction_id = 1;
+  double amount = 2;
+}
+
+message CardTransactionResponse {
+  string status = 1;
+  string transaction_id = 2;
+  string message = 3;
+  string raw_response = 4;
+}
+
