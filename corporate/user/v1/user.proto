@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package lift.corporate.user.v1;
+
+option go_package = "github.com/graytech-lk/lift-protos/gen/go/corporate/user/v1;corporateuserv1";
+
+import "google/protobuf/timestamp.proto";
+
+message GetCorporateUserByIdRequest {
+  string id = 1;
+}
+
+message CorporateUser {
+  string id = 1;
+  google.protobuf.Timestamp created_time = 2;
+  google.protobuf.Timestamp updated_time = 3;
+  string first_name = 4;
+  string last_name = 5;
+  string phone_number = 6;
+  string email = 7;
+  bool email_verified = 8;
+  string corporate_id = 9;
+  string user_sub_type = 10;
+  string status = 11;
+}
+
+message GetCorporateUserByIdResponse {
+  CorporateUser user = 1;
+}
+
+service CorporateUserService {
+  rpc GetCorporateUserById(GetCorporateUserByIdRequest) returns (GetCorporateUserByIdResponse);
+}
+
+
