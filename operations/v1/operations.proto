@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package lift.operations.v1;
+
+option go_package = "github.com/graytech-lk/lift-protos/gen/go/operations/v1;operationsv1";
+
+// Generic querying API for the `service_requests` collection in lift-operations-service.
+//
+// NOTE:
+// - `filter_json`, `projection_json`, and `sort_json` are expected to be valid
+//   MongoDB Extended JSON (relaxed mode is accepted by the server).
+// - Responses are returned as MongoDB Extended JSON documents.
+
+message ListServiceRequestsRequest {
+  // MongoDB filter document in JSON (Extended JSON recommended).
+  // Example: {"status":"completed","service_provider_ids.rider_id":"<id>"}
+  string filter_json = 1;
+
+  // MongoDB projection document in JSON.
+  // Example: {"id":1,"service_extended_parameters.start_time":1}
+  string projection_json = 2;
+
+  // Optional pagination and sorting.
+  int32 limit = 3;
+  int32 skip = 4;
+  // MongoDB sort document in JSON.
+  // Example: {"service_extended_parameters.start_time":-1}
+  string sort_json = 5;
+}
+
+message ListServiceRequestsResponse {
+  // Each entry is a full service request document as Extended JSON.
+  repeated string service_requests_json = 1;
+}
+
+service ServiceRequestService {
+  rpc ListServiceRequests(ListServiceRequestsRequest) returns (ListServiceRequestsResponse);
+}
+
