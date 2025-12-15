@@ -3,16 +3,18 @@
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
 // source: platform/vehicle/v1/vehicle.proto
+// Package vehiclev1 is a generated protocol buffer package.
 
 package vehiclev1
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 )
 
 const (
